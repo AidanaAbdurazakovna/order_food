@@ -1,17 +1,16 @@
 import HeaderCardButton from "./HeaderCardButton";
 import styled from "styled-components";
 
-const Header = ({isLogin, onLogout}) => {
+const Header = ({ isLogin, onLogout }) => {
   return (
     <StyledHeader>
       <h1>ReactMeals</h1>
-      
-      <HeaderCardButton />
-      {isLogin && <div>
-      <StyledButton onClick={onLogout}>
-        Logout
-      </StyledButton>
-      </div>}
+      {isLogin && (
+        <div style={{ display: "flex", gap: "20px" }}>
+          <HeaderCardButton />
+          <StyledButton onClick={onLogout}>Logout</StyledButton>
+        </div>
+      )}
     </StyledHeader>
   );
 };
@@ -36,15 +35,13 @@ const StyledHeader = styled.header`
   }
 `;
 
-const StyledButton=styled.button `
+const StyledButton = styled.button`
   background-color: #20d410;
   font-weight: 700;
   padding: 15px 58px;
   border-radius: 30px;
   font-size: 20px;
 
-
- border: none;
-background-color: #20d410;
-
-`
+  border: none;
+  background-color: #20d410;
+`;
